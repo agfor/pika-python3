@@ -106,8 +106,8 @@ class BaseConnection(connection.Connection):
             except socket.timeout:
                 reason = 'timeout'
             except socket.error as err:
-                LOGGER.error('socket error: %s', err[-1])
-                reason = err[-1]
+                LOGGER.error('socket error: %s', err)
+                reason = err
                 self.socket.close()
 
             LOGGER.warning('Could not connect due to "%s," retrying in %i sec',

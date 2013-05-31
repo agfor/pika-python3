@@ -48,6 +48,8 @@ class SimpleBuffer(object):
         """
         self.buf = self._get_BytesIO()
         if data is not None:
+            if isinstance(data, str):
+                data = data.encode('utf-8')
             self.write(data)
         self.buf.seek(0, os.SEEK_END)
 
